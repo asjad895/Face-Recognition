@@ -7,9 +7,9 @@ Our project focuses on using the Siamese network for face recognition, which is 
 
 In this README file, we will explain the methodology and implementation of our face recognition project using the Siamese network in one-shot learning. We will also provide the necessary instructions for running our code and reproducing our results. So, let's get started!
 
-our adopted method.
-Identification via Verification
-  *Identification requires training a classifier to assign input face images to specific identities in the database.
+## our adopted method.
+**Identification via Verification**
+  * Identification requires training a classifier to assign input face images to specific identities in the database.
   *This approach becomes inefficient and non-scalable as the number of people in the database increases.
   *Adding a new person to the database requires re-training the identification system from scratch with an increased number of neurons.
   *The more effective approach is using the similarity-based comparison approach in verification.
@@ -27,5 +27,5 @@ The benefit of using verification for identification is that if we add a new fac
 
 Thus we observe that the classifier-based identification approach inhibits scalability due to the fixed number of neurons in the final layer. However, the similarity-based comparison approach used in verification is more efficient and scalable when new faces are added to the face database.
 
-** Learning Metric**
+**Learning Metric**
 metric learning is a paradigm where our network is trained in such a way that representations of similar images are close to each other in an embedding space and images of different objects are farther apart. The idea of “similarity” here is defined based on a specific distance metric in the embedding space, which quantifies semantic similarity and whether the images belong to the same or different object or person.
