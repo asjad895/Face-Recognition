@@ -34,3 +34,34 @@ Thus we observe that the classifier-based identification approach inhibits scala
 
 The triplet loss function requires a sample consisting of a triplet of images, namely Anchor, Positive, and Negative.
  The **anchor** and **positive** images belong to the same class or person, while the **negative** image belongs to a different class or person than the positive image. Moreover, the anchor and positive images are different instances of the same person, depicting them in different looks, varied poses, hairstyles, backgrounds, etc.
+ **Formula**
+ L(A, P, N) = max(||f(A) - f(P)||² - ||f(A) - f(N)||² + margin, 0)
+
+where:
+
+A is the anchor image
+P is the positive image
+N is the negative image
+f(.) is the embedding function that maps an input image to a feature vector in a high-dimensional space,
+||.||² denotes the Euclidean distance between two feature vectors,
+margin is a hyperparameter that represents the minimum distance between the positive and negative feature vectors.
+The triplet loss function aims to minimize the distance between the anchor and positive feature vectors while maximizing the distance between the anchor and negative feature vectors. This encourages the network to learn discriminative features that can differentiate between different faces, making it suitable for face recognition applications.
+***
+```python
+import torch.nn.functional as F
+
+# Define a function for computing the triplet loss
+def triplet_loss(anchor, positive, negative, margin):
+    # Compute the Euclidean distance between the anchor and positive samples
+    distance_pos = F.pairwise_distance(anchor, positive, 2)
+    
+    # Compute the Euclidean distance between the anchor and negative samples
+    distance_neg = F.pairwise_distance(anchor, negative, 2)
+    
+    # Compute the triplet loss as the mean of the ReLU value of the difference between distances and the margin
+    loss = torch.mean(F.relu(distance_pos - distance_neg + margin))
+    
+    # Return the computed loss
+    return loss
+
+```
