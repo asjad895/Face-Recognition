@@ -10,14 +10,14 @@ In this README file, we will explain the methodology and implementation of our f
 ## our adopted method.
 **Identification via Verification**
   * Identification requires training a classifier to assign input face images to specific identities in the database.
-  *This approach becomes inefficient and non-scalable as the number of people in the database increases.
-  *Adding a new person to the database requires re-training the identification system from scratch with an increased number of neurons.
-  *The more effective approach is using the similarity-based comparison approach in verification.
-  *In verification, the algorithm is run multiple times for each of the K Face IDs in the database to find the match for the input image.
-  *The identity of the input face is determined by the Face ID for which the binary output of the verification algorithm is true.
-  *The benefit of using verification for identification is that adding a new face to the database only requires running the verification algorithm K+1 times without retraining the network.
-  *The classifier-based identification approach inhibits scalability due to the fixed number of neurons in the final layer.
-  *On the other hand, the similarity-based comparison approach used in verification is more efficient and scalable when new faces are added to the face database.
+  * This approach becomes inefficient and non-scalable as the number of people in the database increases.
+  * Adding a new person to the database requires re-training the identification system from scratch with an increased number of neurons.
+  * The more effective approach is using the similarity-based comparison approach in verification.
+  * In verification, the algorithm is run multiple times for each of the K Face IDs in the database to find the match for the input image.
+  * The identity of the input face is determined by the Face ID for which the binary output of the verification algorithm is true.
+  * The benefit of using verification for identification is that adding a new face to the database only requires running the verification algorithm K+1 times without retraining the network.
+  * The classifier-based identification approach inhibits scalability due to the fixed number of neurons in the final layer.
+  * On the other hand, the similarity-based comparison approach used in verification is more efficient and scalable when new faces are added to the face database.
 
 
 Figure:Identification via Verification 
