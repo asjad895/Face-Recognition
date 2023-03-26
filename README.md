@@ -28,12 +28,13 @@ The benefit of using verification for identification is that if we add a new fac
 Thus we observe that the classifier-based identification approach inhibits scalability due to the fixed number of neurons in the final layer. However, the similarity-based comparison approach used in verification is more efficient and scalable when new faces are added to the face database.
 
 **Learning Metric.**
- * metric learning is a paradigm where our network is trained in such a way that representations of similar images are close to each other in an embedding space and images of different objects are farther apart. The idea of “similarity” here is defined based on a specific distance metric in the embedding space, which quantifies semantic similarity and whether the images belong to the same or different object or person.
+ * metric learning is a paradigm where our network is trained in such a way that representations of similar images are close to each other in an embedding space and images of different objects are farther apart. The idea of “similarity” here is defined based on a specific distance metric in the embedding space, which quantifies semantic similarity and whether the images belong to the same or different object or person.  
  **Triplet Loss**
-  * The triplet loss is a slightly enhanced version of the contrastive loss that we will use for building our face recognition application. The triplet loss function shares the same basic principles and characteristics as the pairwise contrastive loss function However. its formulation is based on a triplet data sample, which is slightly different from the pairwise loss discussed previously.  
+  * The triplet loss is a slightly enhanced version of the contrastive loss that we will use for building our face recognition application. The triplet loss function shares the same basic principles and characteristics as the pairwise contrastive loss function However. its formulation is based on a triplet data sample, which is slightly different from the pairwise loss discussed previously.    
   
 The triplet loss function requires a sample consisting of a triplet of images, namely Anchor, Positive, and Negative.
- The **anchor** and **positive** images belong to the same class or person, while the **negative** image belongs to a different class or person than the positive image. Moreover, the anchor and positive images are different instances of the same person, depicting them in different looks, varied poses, hairstyles, backgrounds, etc.  
+ The **anchor** and **positive** images belong to the same class or person, while the **negative** image belongs to a different class or person than the positive image. Moreover, the anchor and positive images are different instances of the same person, depicting them in different looks, varied poses, hairstyles, backgrounds, etc.   
+  
  **Formula**
  L(A, P, N) = max(||f(A) - f(P)||² - ||f(A) - f(N)||² + margin, 0)  
   
