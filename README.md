@@ -30,13 +30,13 @@ Thus we observe that the classifier-based identification approach inhibits scala
 **Learning Metric.**
  * metric learning is a paradigm where our network is trained in such a way that representations of similar images are close to each other in an embedding space and images of different objects are farther apart. The idea of “similarity” here is defined based on a specific distance metric in the embedding space, which quantifies semantic similarity and whether the images belong to the same or different object or person.
  **Triplet Loss**
-  * The triplet loss is a slightly enhanced version of the contrastive loss that we will use for building our face recognition application. The triplet loss function shares the same basic principles and characteristics as the pairwise contrastive loss function However. its formulation is based on a triplet data sample, which is slightly different from the pairwise loss discussed previously.
-
+  * The triplet loss is a slightly enhanced version of the contrastive loss that we will use for building our face recognition application. The triplet loss function shares the same basic principles and characteristics as the pairwise contrastive loss function However. its formulation is based on a triplet data sample, which is slightly different from the pairwise loss discussed previously.  
+  
 The triplet loss function requires a sample consisting of a triplet of images, namely Anchor, Positive, and Negative.
- The **anchor** and **positive** images belong to the same class or person, while the **negative** image belongs to a different class or person than the positive image. Moreover, the anchor and positive images are different instances of the same person, depicting them in different looks, varied poses, hairstyles, backgrounds, etc.
+ The **anchor** and **positive** images belong to the same class or person, while the **negative** image belongs to a different class or person than the positive image. Moreover, the anchor and positive images are different instances of the same person, depicting them in different looks, varied poses, hairstyles, backgrounds, etc.  
  **Formula**
- L(A, P, N) = max(||f(A) - f(P)||² - ||f(A) - f(N)||² + margin, 0)
-
+ L(A, P, N) = max(||f(A) - f(P)||² - ||f(A) - f(N)||² + margin, 0)  
+  
 where:
 
 A is the anchor image
@@ -45,8 +45,9 @@ N is the negative image
 f(.) is the embedding function that maps an input image to a feature vector in a high-dimensional space,
 ||.||² denotes the Euclidean distance between two feature vectors,
 margin is a hyperparameter that represents the minimum distance between the positive and negative feature vectors.
-The triplet loss function aims to minimize the distance between the anchor and positive feature vectors while maximizing the distance between the anchor and negative feature vectors. This encourages the network to learn discriminative features that can differentiate between different faces, making it suitable for face recognition applications.
-***
+The triplet loss function aims to minimize the distance between the anchor and positive feature vectors while maximizing the distance between the anchor and negative feature vectors. This encourages the network to learn discriminative features that can differentiate between different faces, making it suitable for face recognition applications.  
+***  
+  
 ```python
 import torch.nn.functional as F
 
